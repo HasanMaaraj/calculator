@@ -37,6 +37,7 @@ const operands = document.querySelectorAll('.operand');
 const operators = document.querySelectorAll('.operator');
 const equals = document.querySelector('button[data-key="="]');
 const clear = document.querySelector('button[data-key="AC"]');
+const del = document.querySelector('button[data-key="del"]');
 
 operators.forEach(operator => {
     operator.addEventListener('click',()=> {
@@ -61,4 +62,8 @@ equals.addEventListener('click', () => {
 
 clear.addEventListener('click', () => {
     display.textContent = '';
+});
+
+del.addEventListener('click', () => {
+    display.textContent = display.textContent.slice(0, display.textContent.length - 1);
 });
