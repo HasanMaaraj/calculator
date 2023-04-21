@@ -32,7 +32,7 @@ button{
     font-size: 24px;
 }
 
-.operator {
+.operator,button[data-key="="] {
     background-color: rgb(190, 19, 76);
 }
 
