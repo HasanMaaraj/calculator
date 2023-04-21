@@ -36,6 +36,7 @@ const display = document.querySelector('#display');
 const operands = document.querySelectorAll('.operand');
 const operators = document.querySelectorAll('.operator');
 const equals = document.querySelector('button[data-key="="]');
+const clear = document.querySelector('button[data-key="AC"]');
 
 operators.forEach(operator => {
     operator.addEventListener('click',()=> {
@@ -54,6 +55,10 @@ operands.forEach(operand => {
 
 equals.addEventListener('click', () => {
     if (display.textContent.match(/^.*[0-9]$/)){
-        display.textContent = operate(display.textContent)
+        display.textContent = operate(display.textContent);
     }
+});
+
+clear.addEventListener('click', () => {
+    display.textContent = '';
 });
