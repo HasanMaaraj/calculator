@@ -27,12 +27,15 @@ function operate (expression) {
     } else if (expression.includes('/')) {
         let numbers = expression.split('/');
         return divide(numbers[0], numbers[1]);
+    } else {
+        return expression;
     }
 }
 
 const display = document.querySelector('#display');
 const operands = document.querySelectorAll('.operand');
 const operators = document.querySelectorAll('.operator');
+const equals = document.querySelector('button[data-key="="]');
 
 operators.forEach(operator => {
     operator.addEventListener('click',()=> {
@@ -47,4 +50,10 @@ operands.forEach(operand => {
     operand.addEventListener('click', () =>{
         display.textContent += operand.textContent;
     });
+});
+
+equals.addEventListener('click', () => {
+    if (display.textContent.match(/^.*[0-9]$/)){
+        display.textContent = operate(display.textContent)
+    }
 });
