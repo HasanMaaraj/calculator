@@ -25,8 +25,14 @@ function operate (expression) {
         let numbers = expression.split('/');
         return divide(numbers[0], numbers[1]);
     } else if (expression.includes('-')) {
-        let numbers = expression.split('-');
-        return substract(numbers[0], numbers[1]);
+        if (expression.startsWith('-')){
+            let numbers = expression.slice(1).split('-');
+            numbers[0] = '-' + numbers[0];
+            return substract(numbers[0], numbers[1]);
+        } else {
+            let numbers = expression.split('-');
+            return substract(numbers[0], numbers[1]);
+        }
     } else {
         return expression;
     }
