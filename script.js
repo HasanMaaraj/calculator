@@ -29,3 +29,22 @@ function operate (expression) {
         return divide(numbers[0], numbers[1]);
     }
 }
+
+const display = document.querySelector('#display');
+const operands = document.querySelectorAll('.operand');
+const operators = document.querySelectorAll('.operator');
+
+operators.forEach(operator => {
+    operator.addEventListener('click',()=> {
+        if (display.textContent && 
+            !(display.textContent.includes('+') || display.textContent.includes('-') || display.textContent.includes('*') || display.textContent.includes('/'))){
+            display.textContent += operator.textContent;
+        }
+    });
+});
+
+operands.forEach(operand => {
+    operand.addEventListener('click', () =>{
+        display.textContent += operand.textContent;
+    });
+});
