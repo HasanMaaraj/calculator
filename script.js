@@ -64,7 +64,12 @@ operands.forEach(operand => {
 });
 
 equals.addEventListener('click', () => {
-    if (display.textContent.match(/^.*[0-9]$/)){
+    if (display.textContent.match(/^.*\/(0|0\.0*|\.0*)$/)){
+        display.textContent = "ERROR: Can't divide by 0";
+        setTimeout(() => {
+            display.textContent = '';
+        }, 1000);
+    } else if (display.textContent.match(/^.*[0-9]$/)){
         display.textContent = operate(display.textContent).toFixed(3);
     }
 });
