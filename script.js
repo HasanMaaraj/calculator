@@ -48,7 +48,7 @@ const negative = document.querySelector('button[data-key="-/+"]');
 
 operators.forEach(operator => {
     operator.addEventListener('click',()=> {
-        if (display.textContent.match(/^-?[0-9.]+$/)){
+        if (display.textContent.match(/^-?.?[0-9]+$/)){
             display.textContent += operator.textContent;
         } else if ((!display.textContent || display.textContent.match(/^-?[0-9]+[*/]$/)) && operator.textContent === '-'){
             display.textContent += operator.textContent;
