@@ -27,7 +27,7 @@
     justify-content: space-between;
 }
 
-button{
+button {
     border-radius: 8px;
     flex: 1;
     margin: 4px;
@@ -40,7 +40,7 @@ button{
     background-color: rgb(190, 19, 76);
 }
 
-.operand {
+.operand,button[data-key="."] {
     background-color: rgb(61, 72, 224);
 }
 
