@@ -49,9 +49,9 @@ const dot = document.querySelector('button[data-key="."]');
 
 operators.forEach(operator => {
     operator.addEventListener('click',()=> {
-        if (display.textContent.match(/^-?([0-9]*\.)?[0-9]+$/)){
+        if (display.textContent.match(/^-?([0-9]*\.)?[0-9]+$/) && display.textContent.length < 20){
             display.textContent += operator.textContent;
-        } else if ((!display.textContent || display.textContent.match(/^-?([0-9]*\.)?[0-9]+[*/]$/)) && operator.textContent === '-'){
+        } else if ((!display.textContent || display.textContent.match(/^-?([0-9]*\.)?[0-9]+[*/]$/)) && operator.textContent === '-'  && display.textContent.length < 20){
             display.textContent += operator.textContent;
         }
     });
@@ -59,7 +59,9 @@ operators.forEach(operator => {
 
 operands.forEach(operand => {
     operand.addEventListener('click', () =>{
-        display.textContent += operand.textContent;
+        if (display.textContent.length < 20){
+            display.textContent += operand.textContent;
+        }
     });
 });
 
@@ -83,7 +85,7 @@ del.addEventListener('click', () => {
 });
 
 negative.addEventListener('click', () => {
-    if (display.textContent.match(/^([0-9]*\.)?[0-9]*$/)) {
+    if (display.textContent.match(/^([0-9]*\.)?[0-9]*$/)  && display.textContent.length < 20) {
         display.textContent = '-' + display.textContent;
     } else if (display.textContent.match(/^-([0-9]*\.)?[0-9]*$/)) {
         display.textContent = display.textContent.slice(1);
