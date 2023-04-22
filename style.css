@@ -41,7 +41,7 @@ button {
     flex: 1;
     margin: 4px;
     color: white;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .operator,button[data-key="="] {
@@ -53,5 +53,5 @@ button {
 }
 
 .command {
-    background-color: rgb(221, 218, 40);
+    background-color: rgb(122, 55, 163);
 }
