@@ -45,12 +45,13 @@ const equals = document.querySelector('button[data-key="="]');
 const clear = document.querySelector('button[data-key="AC"]');
 const del = document.querySelector('button[data-key="del"]');
 const negative = document.querySelector('button[data-key="-/+"]');
+const dot = document.querySelector('button[data-key="."]');
 
 operators.forEach(operator => {
     operator.addEventListener('click',()=> {
-        if (display.textContent.match(/^-?.?[0-9]+$/)){
+        if (display.textContent.match(/^-?([0-9]*\.)?[0-9]+$/)){
             display.textContent += operator.textContent;
-        } else if ((!display.textContent || display.textContent.match(/^-?[0-9]+[*/]$/)) && operator.textContent === '-'){
+        } else if ((!display.textContent || display.textContent.match(/^-?([0-9]*\.)?[0-9]+[*/]$/)) && operator.textContent === '-'){
             display.textContent += operator.textContent;
         }
     });
@@ -77,9 +78,15 @@ del.addEventListener('click', () => {
 });
 
 negative.addEventListener('click', () => {
-    if (display.textContent.match(/^[0-9]*$/)) {
+    if (display.textContent.match(/^([0-9]*\.)?[0-9]*$/)) {
         display.textContent = '-' + display.textContent;
-    } else if (display.textContent.match(/^-[0-9]*$/)) {
+    } else if (display.textContent.match(/^-([0-9]*\.)?[0-9]*$/)) {
         display.textContent = display.textContent.slice(1);
+    }
+});
+
+dot.addEventListener('click', () => {
+    if (display.textContent.match(/^-?[0-9]*$/) || display.textContent.match(/^-?([0-9]*\.)?[0-9]+[-+/\*]-?[0-9]*$/)) {
+        display.textContent += dot.textContent;
     }
 });
