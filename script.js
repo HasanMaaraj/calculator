@@ -65,7 +65,7 @@ operands.forEach(operand => {
 
 equals.addEventListener('click', () => {
     if (display.textContent.match(/^.*[0-9]$/)){
-        display.textContent = operate(display.textContent);
+        display.textContent = operate(display.textContent).toFixed(3);
     }
 });
 
